@@ -1,7 +1,19 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+
+pragma solidity ^0.8.2;
 
 
+//ساخت توکن روی ERC20
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract BSTCToken is ERC20 {
+    constructor() public  ERC20("Brown Shitcoin", "BSTC"){
+        _mint(msg.sender,21000);
+    }
+    function decimals() public view  override returns  (uint8) {
+        return  0;
+    }
+}
 //رارداد هوشمندی بنویسید که در توابع مختلف اطلاعات دموگرافیک کاربر را از وی دریافت کند و ɯ توابع دیگر اطلاعات را عنوان خروجی نشان
 // contract DemographicCollector {
 //     struct UserDemographics {
@@ -78,16 +90,16 @@ pragma solidity ^0.8.0;
 // }
 
 //-3 برʹمه ای بنویسید که ورودی اتر به واحد Wei بگیرد ، قیمت دلاری اتریوم را نیز در یک اتبع بگیرد و تعیین کند این مقدار وی چند دلار است.
-contract EthToDollarConverter {
-    function convertEthToDollars(uint256 _weiAmount) public pure returns (uint256) {
+// contract EthToDollarConverter {
+//     function convertEthToDollars(uint256 _weiAmount) public pure returns (uint256) {
       
-        uint256 ethPriceInUsd = 2000;
+//         uint256 ethPriceInUsd = 2000;
         
-        uint256 dollarAmount = (_weiAmount * ethPriceInUsd) / 1e18;
+//         uint256 dollarAmount = (_weiAmount * ethPriceInUsd) / 1e18;
         
-        return dollarAmount;
-    }
-}
+//         return dollarAmount;
+//     }
+// }
 
 
 
